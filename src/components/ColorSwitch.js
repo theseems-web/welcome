@@ -20,7 +20,7 @@ function ColorSwitch() {
 
     return (
         <svg onClick={onClick} xmlns="http://www.w3.org/2000/svg"
-             className="h-10 w-10 absolute text-yellow-500 dark:text-gray-500 transform duration-700"
+             className="h-10 w-10 absolute text-black dark:text-gray-500 transform duration-700"
              style={{top: '4vh', 'left': '3vw'}} fill="none"
              viewBox="0 0 24 24"
              stroke="currentColor">

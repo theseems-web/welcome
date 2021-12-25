@@ -1,17 +1,17 @@
-import CvIcon from "./icons/CvIcon";
-import GithubIcon from "./icons/GithubIcon";
-import TelegramIcon from "./icons/TelegramIcon";
-import MailIcon from "./icons/MailIcon";
+import React from "react";
 
 const className = "h-6 w-6 text-blue-500 dark:text-green-500 transition duration-700";
 
-function IconList() {
+function IconList(props) {
+    const children = React.Children.map(props.children, child => {
+        return React.isValidElement(child)
+            ? React.cloneElement(child, {className: child.className + " " + className})
+            : child;
+    });
+
     return (
-        <div className="flex flex-wrap align-middle justify-center text-center mx-auto space-x-6 mt-5">
-            <CvIcon href={"//theseems.ru/cv"} className={className}/>
-            <GithubIcon href={"//theseems.ru/github"} className={className}/>
-            <TelegramIcon href={"//theseems.ru/telegram"} className={className}/>
-            <MailIcon href={"mailto:me@theseems.ru"} className={className}/>
+        <div className="flex flex-wrap align-middle justify-center text-center mx-auto space-x-6 mt-5" style={{alignItems: 'center', flexFlow: 'row'}}>
+            {children}
         </div>
     )
 }
